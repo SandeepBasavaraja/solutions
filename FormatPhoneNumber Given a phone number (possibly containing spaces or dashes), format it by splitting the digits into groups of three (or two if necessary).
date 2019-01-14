@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+using namespace std;
+  string solution(string &S) {
+  string newstr;
+  char str;
+ for(unsigned int len = 0; len < S.size(); len++){
+    str = S.at(len);
+    if(str == ' ' || str == '-') continue;
+    newstr +=str;
+  }
+
+  if(newstr.length() < 2)
+      return "";
+   if(newstr.length() == 2)
+      return newstr;
+   if(newstr.length() == 3)
+      return newstr;
+   for(unsigned int new_ind = 3; new_ind < newstr.length() - 2;new_ind += 4)
+      newstr.insert(new_ind,"-");
+      str = newstr.at(newstr.length()-4);
+      if(str != '-')
+      newstr.insert(newstr.length()-2,"-");
+      return newstr;
+ }
