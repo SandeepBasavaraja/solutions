@@ -1,0 +1,16 @@
+string solution(string &S) {
+  if(S.length() < 1)
+    return S;
+    string copystr = S;
+
+ for(unsigned int len = 1; len < copystr.length();){
+    char currentchar = copystr.at(len);
+    char previouschar = copystr.at(len - 1);
+if(currentchar == previouschar){
+    copystr.erase(len-1,2);
+    if(len != 1) len--;
+ }
+ else len++; 
+   }
+return copystr;
+}
